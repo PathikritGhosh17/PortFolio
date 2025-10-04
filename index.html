@@ -694,9 +694,34 @@
                 font-size: 2rem;
             }
 
+            /* --- FIX FOR BUTTON STACKING AND CENTERING --- */
             .hero-buttons {
-                justify-content: center;
+                /* Center the button container */
+                justify-content: center; 
+                /* Stack buttons vertically */
+                flex-direction: column; 
+                gap: 10px; 
             }
+            
+            .hero-buttons .btn {
+                /* Make buttons full width for a cleaner mobile stack */
+                width: 80%; /* Adjusted for better appearance with padding */
+                /* Center the content inside the button */
+                justify-content: center; 
+                margin: 0 auto; /* Center the block button itself */
+            }
+            
+            .hero-image {
+                /* Move image below content for mobile view */
+                order: -1;
+                margin-bottom: 2rem;
+            }
+
+            .profile-placeholder img {
+                width: 250px;
+                height: 300px;
+            }
+            /* ------------------------------------------- */
 
             .about-content {
                 grid-template-columns: 1fr;
@@ -792,92 +817,19 @@
             background: var(--secondary-color);
             transform: translateY(-5px);
         }
-        /* ----------------- MOBILE RESPONSIVENESS ----------------- */
+
+        /* ----------------- MOBILE RESPONSIVENESS ----------------- (Combined with the 768px block above for simplicity) */
         @media (max-width: 1024px) {
-        .home {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 40px 15px;
-        }
-
-        .home-content {
-            max-width: 90%;
-            margin: 0 auto 25px auto;
-        }
-
-        .home-content h1 {
-            font-size: 30px;
-            line-height: 1.2;
-        }
-
-        .home-content h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        .home-content p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #f1f1f1;
-            text-align: justify;
-            margin: 0 auto;
-            max-width: 90%;
-        }
-
-        .btn-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-box a {
-            width: 100%;
-            text-align: center;
-            font-size: 15px;
-        }
-
-        .home-img {
-            width: 80%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .home-img img {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-        }
         }
 
         @media (max-width: 480px) {
-        .home-content h1 {
-            font-size: 16px;
-        }
 
-        .home-content h3 {
-            font-size: 18px;
-        }
-
-        .home-content p {
-            font-size: 14px;
-        }
-
-        .btn-box a {
-            width: 90%;
-        }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <!-- <a href="#home" class="nav-brand">PG</a> -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -895,7 +847,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
@@ -919,7 +870,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
@@ -941,7 +891,6 @@
         </div>
     </section>
 
-    <!-- Education Section -->
     <section class="education" id="education">
         <div class="container">
             <h2 class="section-title">Education</h2>
@@ -974,7 +923,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section class="skills" id="skills">
         <div class="container">
             <h2 class="section-title">Skills</h2>
@@ -984,7 +932,6 @@
                     <div class="skill-tags">
                         <span class="skill-tag">Java</span>
                         <span class="skill-tag">Python</span>
-                        <!--<span class="skill-tag">C</span>-->
                         <span class="skill-tag">HTML</span>
                         <span class="skill-tag">CSS</span>
                         <span class="skill-tag">JavaScript</span>
@@ -1008,7 +955,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="container">
             <h2 class="section-title">Projects</h2>
@@ -1020,7 +966,7 @@
                     </div>
                     <div class="project-body">
                         <ul>
-                            <li>Designed and developed an Intrusion Detection System (IDS) using Bayesian inference and Python</li>
+                            <li>Designed and developed an **Intrusion Detection System (IDS)** using **Bayesian inference** and **Python**</li>
                             <li>Examined packet size as an important parameter for detection of possible intrusions</li>
                             <li>Emphasized minimization of false positives with guaranteed high detection precision</li>
                             <li>Built-in real-time monitoring and automatic threat alert capabilities</li>
@@ -1058,7 +1004,6 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
     <section class="certifications" id="certifications">
         <div class="container">
             <h2 class="section-title">Certifications</h2>
@@ -1104,7 +1049,6 @@
         </div>
     </section>
 
-    <!-- Extra-Curricular Section -->
     <section class="extra" id="extra">
         <div class="container">
             <h2 class="section-title">Extra-Curricular Activities</h2>
@@ -1124,7 +1068,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">Contact Me</h2>
@@ -1193,7 +1136,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/pathikrit-ghosh-9141151a4/" target="_blank">💼</a>
@@ -1203,7 +1145,6 @@
         <p>&copy; 2025 Pathikrit Ghosh. All rights reserved.</p>
     </footer>
 
-    <!-- Scroll to Top Button -->
     <div class="scroll-top" id="scrollTop">↑</div>
 
     <script>
